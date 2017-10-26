@@ -74,6 +74,36 @@ class build_tree_from_lists:
 
         return res
 
+    def delete(self, head, root, nodeval):
+
+        head = root
+        head_father = root
+        tag = "None"
+        while nodeval != head.val:
+            head_father = head
+            if nodeval <= root.val and head.left:         
+                head = head.left
+            elif nodeval > root.val and head.right: 
+                head = head.right
+            else: 
+                print("Node not found")
+                return
+        
+        if head.val > head_father.val and 
+            if head.right:
+                head_father.right = head.right
+                head.right.left = head.left 
+            elif head.left:
+                head_father.right = head.left 
+
+
+
+
+
+
+
+
+
 
 
 bt = build_tree_from_lists()
