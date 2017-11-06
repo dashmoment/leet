@@ -49,6 +49,34 @@ class Solution(object):
         			return root
         	else:
         		return root
+from heapq import *
+class Solution2(object):
+    def mergeKLists(self, lists):
+        """
+        :type lists: List[ListNode]
+        :rtype: ListNode
+        """
+
+        heap = []
+        root = ListNode(0)
+        head = root
+        for i in range(len(lists)):
+        	if lists[i]: heappush(heap, (lists[i].val, lists[i]))
+
+        while len(heap) > 0:
+
+        	_, node = heappop(heap)
+        	head.next = node
+        	head = head.next
+        	if node.next != None: 
+        		heappush(heap, (node.next.val, node.next))
+
+        return root.next
+
+
+
+
+        
 
   
 root = ListNode(0)
@@ -57,7 +85,7 @@ root.next.next = ListNode(5)
 
 lists = [root]
 
-s = Solution()
+s = Solution2()
 res = s.mergeKLists(lists)
 
 tmp = res
